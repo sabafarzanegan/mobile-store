@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body
         className={`${vazirFont.className} bg-gray-800 text-white px-8 min-h-screen flex flex-col`}>
-        <header>
+        <header className="mx-auto max-w-7xl w-full">
           <MainHeader />
         </header>
         <div className="flex-1  grid">
