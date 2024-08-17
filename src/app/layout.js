@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <header className="mx-auto max-w-7xl w-full">
           <MainHeader />
         </header>
-        <div className="flex-1  grid">
+        <div className="flex-1 px-8 grid">
           <main className="mx-auto max-w-7xl w-full">{children}</main>
         </div>
       </body>

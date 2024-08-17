@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { GrHome } from "react-icons/gr";
+import { FaSignOutAlt } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { usePathname } from "next/navigation";
+import { signOutaction } from "@/lib/action";
 
 const navLinks = [
   {
@@ -42,7 +44,12 @@ function SideNavigation() {
         ))}
 
         <li className="mt-auto">
-          <button>خروج</button>
+          <form action={signOutaction}>
+            <button className=" w-full flex items-center  gap-x-2 hover:bg-gray-500 px-5  py-3 my-5 rounded-md">
+              <FaSignOutAlt />
+              <p>خروج</p>
+            </button>
+          </form>
         </li>
       </ul>
     </nav>
