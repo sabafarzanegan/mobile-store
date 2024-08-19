@@ -2,6 +2,8 @@ import { auth } from "@/lib/auth";
 
 async function page() {
   const session = await auth();
+  console.log(session);
+
   return (
     <div className="flex items-center gap-x-4">
       <p>سلام</p>

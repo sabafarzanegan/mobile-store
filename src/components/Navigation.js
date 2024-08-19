@@ -1,4 +1,3 @@
-import { auth } from "@/lib/auth";
 import Link from "next/link";
 import React from "react";
 
@@ -18,7 +17,6 @@ const navigations = [
 ];
 
 async function Navigation() {
-  const session = await auth();
   return (
     <div className=" text-lg z-10 ">
       <ul className="flex items-center justify-center gap-16">
@@ -27,11 +25,6 @@ async function Navigation() {
             <Link href={navaigate.href}>{navaigate.name}</Link>
           </li>
         ))}
-        {session?.user && (
-          <p className="text-base text-blue-300 font-medium">
-            {session.user.name}
-          </p>
-        )}
       </ul>
     </div>
   );
