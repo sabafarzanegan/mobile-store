@@ -23,7 +23,7 @@ export async function createUser(newuser) {
 
 export async function getProducts() {
   const { data, error } = await supabase.from("phone").select("*");
-  await new Promise((res) => setTimeout(res, 2000));
+  await new Promise((res) => setTimeout(res, 1000));
 
   if (error) {
     console.log(error);

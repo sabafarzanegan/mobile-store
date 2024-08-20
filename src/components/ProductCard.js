@@ -17,7 +17,7 @@ function ProductCard({ product }) {
     count,
   } = product;
   return (
-    <Link href={`/store/${id}`} className="">
+    <Link href={`/store/${id}`} className="max-w-[600px] md:max-w-[540px]">
       <div className="flex items-start justify-between md:justify-center gap-x-6  rounded-lg ">
         {/* img div */}
         <div className="">

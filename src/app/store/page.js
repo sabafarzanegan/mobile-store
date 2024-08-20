@@ -1,8 +1,10 @@
 import ProductList from "@/components/ProductList";
 import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
+import Filter from "../../components/Filter";
 
-function page() {
+function page({ searchParams }) {
+  const filter = searchParams?.category ?? "all";
   return (
     <>
       <div className="space-y-12">
@@ -16,8 +18,11 @@ function page() {
           موبایل کدام است و کدام برندها در بازار از طرفداران بیشتری برخوردار
           هستند؟
         </p>
-        <Suspense fallback={<Spinner />}>
-          <ProductList />
+        <div className="flex justify-start items-center mb-8">
+          <Filter />
+        </div>
+        <Suspense fallback={<Spinner />} key={filter}>
+          <ProductList filter={filter} />
         </Suspense>
       </div>
     </>
