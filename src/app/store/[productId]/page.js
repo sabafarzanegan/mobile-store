@@ -1,3 +1,4 @@
+import TextExpender from "@/components/TextExpender";
 import { getProduct } from "@/lib/data_server";
 import { Image } from "next/image";
 
@@ -78,7 +79,9 @@ async function page({ params }) {
 
       <div className="space-y-12 mt-8">
         <p className="mb-4">معرفی</p>
-        <span className="leading-8">{description}</span>
+        <span className="leading-8">
+          <TextExpender>{description}</TextExpender>
+        </span>
       </div>
     </section>
   );
