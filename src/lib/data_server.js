@@ -21,7 +21,7 @@ export async function createUser(newuser) {
   return data;
 }
 
-export async function getProduct() {
+export async function getProducts() {
   const { data, error } = await supabase.from("phone").select("*");
   await new Promise((res) => setTimeout(res, 2000));
 
@@ -30,5 +30,13 @@ export async function getProduct() {
     throw new Error("product cuold not get");
   }
 
+  return data;
+}
+
+export async function getProduct(id) {
+  const { data, error } = await supabase.from("phone").select("*").eq("id", id);
+  if (error) {
+    throw new Error("could not get this product");
+  }
   return data;
 }

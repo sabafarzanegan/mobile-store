@@ -1,55 +1,74 @@
 import Image from "next/image";
-function ProductCard({ product }) {
-  return (
-    <div className="flex items-center justify-center gap-x-6 ">
-      {/* img div */}
-      <div>
-        <Image
-          width={200}
-          height={200}
-          src={product.image}
-          className="object-cover"
-        />
-      </div>
-      {/* info product */}
-      <div className="space-y-4 text-base">
-        <h3 className="text-lg">{product.name}</h3>
-        <div className="flex items-center gap-x-6">
-          <div className="flex items-center gap-x-2">
-            <p>حافظه:</p>
-            <span>{product.storage}</span>
-            گیگابایت
-          </div>
-          <div className="flex items-center gap-x-2">
-            <p>رم:</p>
-            <span>{product.ram}</span>
-            گیگ
-          </div>
-        </div>
-        <div className="flex items-center gap-x-2">
-          <p>دسته:</p>
-          <span>{product.category}</span>
-        </div>
+import Link from "next/link";
 
-        {product.discount > 0 ? (
-          <>
-            <div className="flex items-center gap-x-3">
-              <span className="text-2xl flex items-center gap-x-1">
-                {(product.regularPrice - product.discount).toLocaleString()}
-                <span className="text-xs">تومان</span>
-              </span>
-              <span className="line-through font-semibold text-red-400">
-                {product.regularPrice.toLocaleString()}
-              </span>
+function ProductCard({ product }) {
+  const {
+    id,
+    name,
+    storage,
+    ram,
+    regularPrice,
+    discount,
+    image,
+    description,
+    selfCamera,
+    backCamera,
+    category,
+    count,
+  } = product;
+  return (
+    <Link href={`/store/${id}`} className="">
+      <div className="flex items-start justify-between md:justify-center gap-x-6  rounded-lg ">
+        {/* img div */}
+        <div className="">
+          <Image
+            className="object-cover w-[80%] h-[80%] rounded-lg overflow-hidden"
+            width={300}
+            height={300}
+            src={image}
+          />
+        </div>
+        {/* info product */}
+        <div className="space-y-4 md:space-y-8 text-base">
+          <h3 className="text-base  md:text-lg text-wrap">{name}</h3>
+          <div className="flex items-center gap-x-6 text-base md:text-lg">
+            <div className="flex items-center gap-x-2">
+              <p>حافظه:</p>
+              <span>{storage}</span>
+              گیگابایت
             </div>
-          </>
-        ) : (
-          <span className="text-xl ">
-            {product.regularPrice.toLocaleString()}
-          </span>
-        )}
+            <div className="flex items-center gap-x-2">
+              <p>رم:</p>
+              <span>{ram}</span>
+              گیگ
+            </div>
+          </div>
+          <div className="flex items-center gap-x-2 text-base md:text-lg">
+            <p>دسته:</p>
+            <span>{category}</span>
+          </div>
+
+          {discount > 0 ? (
+            <>
+              <div className="flex items-center gap-x-3">
+                <span className="text-lg md:text-2xl flex items-center gap-x-1">
+                  {(regularPrice - discount).toLocaleString()}
+                  <span className="text-xs">تومان</span>
+                </span>
+                <span className="line-through font-semibold text-red-400">
+                  {regularPrice.toLocaleString()}
+                </span>
+              </div>
+            </>
+          ) : (
+            <span className="text-base md:text-2xl mt-2 ">
+              {regularPrice.toLocaleString()}
+              <span className="text-sm ">تومان</span>
+            </span>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
