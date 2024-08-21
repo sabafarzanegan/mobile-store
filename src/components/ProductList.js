@@ -16,9 +16,9 @@ async function ProductList({ filter }) {
     displayedProducts = products.filter(
       (product) => product.category === "iphone"
     );
-  if (filter === "xiaomi")
+  if (filter === "Xiaomi")
     displayedProducts = products.filter(
-      (product) => product.category === "xiaomi"
+      (product) => product.category === "Xiaomi"
     );
   if (filter === "honer")
     displayedProducts = products.filter(
@@ -30,7 +30,7 @@ async function ProductList({ filter }) {
     );
 
   return (
-    <div className="flex items-center justify-between flex-wrap gap-y-8">
+    <div className="flex items-center justify-center gap-x-4 gap-y-4 flex-wrap py-6">
       {displayedProducts.map((product) => (
         <ProductCard product={product} />
       ))}

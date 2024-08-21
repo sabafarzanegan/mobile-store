@@ -12,63 +12,71 @@ function ProductCard({ product }) {
     image,
     description,
     selfCamera,
-    backCamera,
+
     category,
     count,
   } = product;
   return (
-    <Link href={`/store/${id}`} className="max-w-[600px] md:max-w-[540px]">
-      <div className="flex items-start justify-between md:justify-center gap-x-6  rounded-lg ">
-        {/* img div */}
-        <div className="">
-          <Image
-            className="object-cover w-[80%] h-[80%] rounded-lg overflow-hidden"
-            width={300}
-            height={300}
-            src={image}
-          />
-        </div>
-        {/* info product */}
-        <div className="space-y-4 md:space-y-8 text-base">
-          <h3 className="text-base  md:text-lg text-wrap">{name}</h3>
-          <div className="flex items-center gap-x-6 text-base md:text-lg">
-            <div className="flex items-center gap-x-2">
-              <p>حافظه:</p>
-              <span>{storage}</span>
-              گیگابایت
-            </div>
-            <div className="flex items-center gap-x-2">
-              <p>رم:</p>
-              <span>{ram}</span>
-              گیگ
-            </div>
-          </div>
-          <div className="flex items-center gap-x-2 text-base md:text-lg">
-            <p>دسته:</p>
-            <span>{category}</span>
+    //
+    <div className="flex border-primary-800 border w-full">
+      <div className="">
+        <Image
+          width={200}
+          height={200}
+          src={image}
+          alt={` ${name}`}
+          className="object-cover  border-r border-primary-800 h-full "
+        />
+      </div>
+
+      <div className="flex-grow">
+        <div className="pt-5 pb-4 px-7 bg-primary-950">
+          <h3 className="text-accent-500 font-semibold text-2xl mb-3">
+            {name}
+          </h3>
+
+          <div className="flex gap-3 items-center mb-2">
+            <p className="text-lg text-primary-200">
+              حافظه: <span className="font-bold">{storage}</span>
+            </p>
+            <p className="text-lg text-primary-200">
+              رم: <span className="font-bold">{ram}</span>
+            </p>
+            <p className="text-lg text-primary-200">
+              سلفی: <span className="font-bold">{selfCamera}</span>
+            </p>
+            <p className="text-lg text-primary-200">
+              مدل: <span className="font-bold">{category}</span>
+            </p>
           </div>
 
-          {discount > 0 ? (
-            <>
-              <div className="flex items-center gap-x-3">
-                <span className="text-lg md:text-2xl flex items-center gap-x-1">
-                  {(regularPrice - discount).toLocaleString()}
-                  <span className="text-xs">تومان</span>
+          <p className="flex gap-3 justify-end items-baseline">
+            {discount > 0 ? (
+              <>
+                <span className="text-2xl">
+                  {(regularPrice - discount).toLocaleString()}تومان
                 </span>
-                <span className="line-through font-semibold text-red-400">
-                  {regularPrice.toLocaleString()}
+                <span className="line-through text-red-400 font-semibold text-primary-600">
+                  ${regularPrice}
                 </span>
-              </div>
-            </>
-          ) : (
-            <span className="text-base md:text-2xl mt-2 ">
-              {regularPrice.toLocaleString()}
-              <span className="text-sm ">تومان</span>
-            </span>
-          )}
+              </>
+            ) : (
+              <span className="text-2xl font-[350]">
+                {regularPrice.toLocaleString()}تومان
+              </span>
+            )}
+            {/* <span className="text-primary-200">/ night</span> */}
+          </p>
+        </div>
+        <div className="bg-primary-950 border-t border-t-primary-800 text-right">
+          <Link
+            href={`/store/${id}`}
+            className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-red-500 transition-all hover:text-primary-900">
+            &rarr; مشاهده و خرید
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

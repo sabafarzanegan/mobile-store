@@ -54,11 +54,11 @@ function Filter() {
         } `}>
         موتورلا
       </button>
-      {/* <button
+      <button
         onClick={() => handleFilter("Xiaomi")}
         className="px-5 py-2 hover:bg-primary-700">
         شیائومی
-      </button> */}
+      </button>
     </div>
   );
 }
