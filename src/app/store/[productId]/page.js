@@ -1,5 +1,9 @@
 import TextExpender from "@/components/TextExpender";
 import { getProduct } from "@/lib/data_server";
+import { GrStorage } from "react-icons/gr";
+import { MdOutlineSdStorage } from "react-icons/md";
+import { RiCameraSwitchLine } from "react-icons/ri";
+import { CgDisplaySpacing } from "react-icons/cg";
 import { Image } from "next/image";
 
 async function page({ params }) {
@@ -15,37 +19,51 @@ async function page({ params }) {
     image,
     description,
     selfCamera,
+    display,
     backCamera,
     category,
     count,
   } = product[0];
 
   return (
-    <section className="w-full mt-6 ">
+    <section className="w-full mt-6 py-4">
       <div className="flex items-start justify-between flex-wrap gap-y-4 ">
         <div className="m-auto">
           <div>
-            <img src={image} className="w-full md:w-[450px] md:h-[450px]" />
+            <img
+              src={image}
+              width={300}
+              height={300}
+              className="w-full md:w-[450px] md:h-[450px]"
+            />
           </div>
         </div>
         <div className="m-auto space-y-12">
-          <h1 className="text-xl text-wrap">{name}</h1>
+          <h1 className="text-xl md:text-2xl text-wrap">{name}</h1>
           <div className="flex items-center gap-x-2">
             <p>برند:</p>
             <span>{category}</span>
           </div>
-          <div className="flex items-center justify-between gap-x-6">
-            <div className="flex items-center gap-x-2">
+          <div className="flex items-center justify-between gap-x-4 flex-wrap">
+            <div className="flex items-center justify-start gap-x-2 border px-8 py-4 bg-gray-600 rounded-md">
+              <GrStorage />
               <p>حافظه:</p>
               <span>{storage}</span>
             </div>
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2 border px-8 py-4 bg-gray-600 rounded-md">
+              <MdOutlineSdStorage />
               <p>رم:</p>
               <span>{ram}</span>
             </div>
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2 border px-8 py-4 bg-gray-600 rounded-md">
+              <RiCameraSwitchLine />
               <p>رزولوشن دوربین سلفی:</p>
               <span>{selfCamera}</span>
+            </div>
+            <div className="flex items-center gap-x-2 border px-8 py-4 bg-gray-600 rounded-md">
+              <CgDisplaySpacing />
+              <p>فناوری صفحه نمایش:</p>
+              <span>{display}</span>
             </div>
           </div>
           {/* price */}
