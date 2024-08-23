@@ -28,7 +28,7 @@ async function page({ params }) {
   return (
     <section className="w-full mt-6 py-4">
       <div className="flex items-start justify-between flex-wrap gap-y-4 ">
-        <div className="m-auto">
+        <div className="">
           <div>
             <img
               src={image}
@@ -38,13 +38,13 @@ async function page({ params }) {
             />
           </div>
         </div>
-        <div className="m-auto space-y-12">
+        <div className="space-y-12">
           <h1 className="text-xl md:text-2xl text-wrap">{name}</h1>
           <div className="flex items-center gap-x-2">
             <p>برند:</p>
             <span>{category}</span>
           </div>
-          <div className="flex items-center justify-between gap-x-4 flex-wrap">
+          <div className="flex items-center justify-start gap-y-2 gap-x-4 flex-wrap">
             <div className="flex items-center justify-start gap-x-2 border px-8 py-4 bg-gray-600 rounded-md">
               <GrStorage />
               <p>حافظه:</p>
